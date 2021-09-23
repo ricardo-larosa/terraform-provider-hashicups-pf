@@ -14,6 +14,9 @@ provider "hashicups" {
   host     = "http://localhost:19090"
 }
 
+data "hashicups_coffees" "coffees" {
+}
+
 resource "hashicups_order" "edu" {
   items = [{
     coffee = {
@@ -31,4 +34,8 @@ resource "hashicups_order" "edu" {
 
 output "edu_order" {
   value = hashicups_order.edu
+}
+
+output "coffees" {
+  value = data.hashicups_coffees.coffees
 }
